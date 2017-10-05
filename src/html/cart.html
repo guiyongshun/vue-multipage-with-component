@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta content="IE=dege,chrom=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <title>Cart</title>
+    <link href="<%= require('../style/base.css') %>" rel="stylesheet">
+    <link href="<%= require('../style/checkout.css') %>" rel="stylesheet">
+    <link href="<%= require('../style/modal.css') %>" rel="stylesheet">
+    <style type="text/css">
+        .quantity input {
+            width: 40px;
+            padding: 5px 10px;
+            text-align: center;
+        }
+
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="checkout">
+        <div id="app" v-cloak></div>
+    </div>
+</body>
+
+</html>
