@@ -6,8 +6,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
-        app: path.join(__dirname,'src/script/app.js'),
-        address: path.join(__dirname,'src/script/app2.js'),
+        cart: path.join(__dirname,'src/script/page/cart.js'),
+        address: path.join(__dirname,'src/script/page/address.js'),
         vendor: [
             'vue',
             'axios'
@@ -94,7 +94,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname,'src/html/address.html'),
             filename: 'address.html',
-            excludeChunks: ['app']           
+            excludeChunks: ['cart']           
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',

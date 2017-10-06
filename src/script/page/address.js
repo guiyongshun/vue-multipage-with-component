@@ -1,6 +1,9 @@
 import Vue from 'vue';
-import Data from '../../assest/addressData.json';
+import {addressData} from '../../assest/mock/mockData.js';
 import * as Modal from '../component/modal.js';
+import axios from 'axios';
+
+Vue.prototype.axios = axios;
 
 let template = `
 <div class="container">
@@ -103,7 +106,8 @@ let template = `
 </div>
 `;
 
-Vue.component('address-view', {
+new Vue({
+    el:'#app',
     template: template,
     data() {
         return {
@@ -123,10 +127,7 @@ Vue.component('address-view', {
     computed: {
         filterAddress() {
             return this.addressList.slice(0, this.limitNum);
-        },
-        // showOverlay() {
-        //     return this.delShow || this.editShow;
-        // }
+        }
     },
     mounted() {
         this.$nextTick(() => {
@@ -135,7 +136,7 @@ Vue.component('address-view', {
     },
     methods: {
         getAddressList() {
-            this.axios.get(Data).then(res => {
+            this.axios.get('g.cn/address').then(res => {
                 ({
                     result: this.addressList
                 } = res.data);
@@ -150,7 +151,6 @@ Vue.component('address-view', {
             })
         },
         showDialog(type) {
-            // this.currentAddress = item;
             switch (type) {
                 case 'del':
                     this.delShow = true;
